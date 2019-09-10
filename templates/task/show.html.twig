@@ -1,0 +1,46 @@
+{% extends 'base.html.twig' %}
+
+{% block title %}Hello TaskController!{% endblock %}
+
+{% block body %}
+<style>
+    .example-wrapper { margin: 1em auto; max-width: 800px; width: 95%; font: 18px/1.5 sans-serif; }
+    .example-wrapper code { background: #F5F5F5; padding: 2px 6px; }
+</style>
+
+<div class="example-wrapper">
+    <h1>Hello {{ controller_name }}! ✅</h1>
+
+    This friendly message is coming from:
+    <ul>
+        <li>Your controller at <code><a href="{{ '/Users/xearts/MySymfonyProjectsPractice/my-project-ver4/src/Controller/TaskController.php'|file_link(0) }}">src/Controller/TaskController.php</a></code></li>
+        <li>Your template at <code><a href="{{ '/Users/xearts/MySymfonyProjectsPractice/my-project-ver4/templates/task/index.html.twig'|file_link(0) }}">templates/task/index.html.twig</a></code></li>
+    </ul>
+
+
+    <div class="container">
+        <p>
+            <a class="btn btn-secondary" href="{{ url('task')}}">New</a>
+        </p>
+        <div>
+            {% for taskItem in taskList %}
+            <div>
+                <b>NAME</b><br><span>{{ taskItem.name }}</span>
+            </div>
+            <div>
+                <b>STATUS</b><br><span>{{ taskItem.status }}</span>
+            </div>
+            <div>
+                <b>TASK</b><br><span>{{ taskItem.task }}</span>
+            </div>
+            <div>
+                <b>COMMENT</b><br>
+                <span>{{ taskItem.comment }}</span>
+            </div>
+                <hr>
+            {% endfor %}
+        </div>
+
+    </div>
+</div>
+{% endblock %}
